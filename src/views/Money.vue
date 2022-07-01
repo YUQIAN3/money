@@ -5,7 +5,6 @@
       Money.vue
         </layout>
     </div>
-    <Nav/>
   </div>
 </template>
 
