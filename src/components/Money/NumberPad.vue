@@ -42,10 +42,7 @@ inputContent(event:MouseEvent){
     return;
     }
     this.output+=input;
-
   }
-
-
   remove(){
     if(this.output.length===1){
       this.output='0';
@@ -57,7 +54,9 @@ inputContent(event:MouseEvent){
   this.output='0';
   }
   ok(){
-
+  this.$emit('update:value',this.output)
+    this.$emit('submit',this.output)
+    this.output='0'
   }
 }
 </script>

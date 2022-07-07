@@ -1,14 +1,28 @@
 <template>
     <ul class="types">
-      <li class="selected">支出</li>
-      <li>收入</li>
+      <li :class="value==='-' && 'selected'"
+      @click="selectType('-')">支出</li>
+      <li :class="value==='+' && 'selected'"
+      @click="selectType('+')">收入</li>
     </ul>
 </template>
 
-<script>
-export default {
-  name: "Type"
-};
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import {Prop} from 'vue-property-decorator';
+
+@Component
+export default class Types extends Vue{
+  @Prop()readonly value!:string
+  selectType(type:string){//type 只能是+或-中的一个
+     if(type!=='-'&& type!=='+'){
+        throw new Error('type is unknown')
+      }
+
+    }
+
+}
 </script>
 
 <style lang="scss" scoped>

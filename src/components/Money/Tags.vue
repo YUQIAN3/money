@@ -1,5 +1,8 @@
 <template>
   <div class="tags">
+    <div class="new">
+      <button @click="create">新增标签</button>
+    </div>
     <ul class="current">
       <li v-for="tag in dataSource" :key="tag"
           :class="{selected:selectedTags.indexOf(tag)>=0}"
@@ -15,7 +18,7 @@ import { Prop } from 'vue-property-decorator';
 
 @Component
 export default class Tags extends Vue{
-  @Prop() dataSource:string[]|undefined;
+  @Prop() readonly dataSource :string[]|undefined;
   selectedTags:string[]=[];
   toggle(tag:string){
     const index=this.selectedTags.indexOf(tag);
@@ -24,6 +27,15 @@ export default class Tags extends Vue{
     }else{
       this.selectedTags.push((tag))
     }
+    this.$emit('update:value',this.selectedTags)
+  }
+  create(){
+    const name=window.prompt('请输入标签名')
+    if(name===''){
+      window.alert('标签不能为空')
+    }else if(this.dataSource){
+        this.$emit('update:dataSource',[...this.dataSource,name])
+      }
   }
 }
 </script>
@@ -37,6 +49,7 @@ export default class Tags extends Vue{
   padding: 16px;
   > .current {
     display: flex;
+    flex-wrap: wrap;
     > li{
       $bg: #d9d9d9;
       background: $bg;
@@ -46,6 +59,7 @@ export default class Tags extends Vue{
       border-radius: $h/2;
       padding: 0 16px ;
       margin-right: 12px;
+
       &.selected{
         background: darken($bg,50%);
         color: white;
@@ -57,8 +71,8 @@ export default class Tags extends Vue{
     color: red;
     button{
       background: transparent;
-      //border: none;
-      //color: #999;
+      border: none;
+      color: #999;
       border-bottom: 1px solid;
       padding: 0 4px;
     }
