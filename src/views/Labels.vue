@@ -1,11 +1,11 @@
 <template>
-    <layout>
-      <ol class="tags">
-        <li v-for="tag in tags" :key="tag">
+    <layout >
+        <ol class="tags">
+        <li v-for="tag in tags" :key="tag" >
           <span>{{tag}}</span>
           <Icon name="right"/>
         </li>
-      </ol>
+        </ol>
       <div class="createTag-wrapper">
         <button class="createTag" @click="createTag">新增标签</button>
       </div>
@@ -38,19 +38,21 @@ export default class extends Vue{
 <style lang="scss" scoped>
 .tags{
   background: white;
-  >li{
+  padding-left: 16px;
+  > li{
   min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e6e6e6;
-  }
-  .svg{
-    width: 16px;
-    height: 16px;
-    color:#666;
-    margin-right: 16px;
+    svg{
+      width: 16px;
+      height: 16px;
+      color:#666;
+      border: 1px solid red;
+      margin-right: 16px;
 
+    }
   }
 }
 .createTag{

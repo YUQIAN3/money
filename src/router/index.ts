@@ -5,8 +5,8 @@ import HomeView from '../views/HomeView.vue'
 import Labels  from '@/views/Labels.vue'
 import Statistics  from '@/views/Statistics.vue'
 import Notfound  from '@/views/Notfound.vue'
+import EditLabel from '@/views/EditLable.vue'
 Vue.use(VueRouter)
-
 const routes:Array<RouteConfig>  = [
   {
     path:'/',
@@ -20,9 +20,14 @@ const routes:Array<RouteConfig>  = [
     path:'/labels',
     component:Labels
   },
+
   {
     path:'/statistics',
     component:Statistics
+  },
+  {
+    path:'/labels/edit',
+    component:EditLabel
   },
   {
     path: '*',
