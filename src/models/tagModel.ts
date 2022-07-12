@@ -1,6 +1,10 @@
+type Tag={
+    id:string;
+    name:string;
+}
 type TagModel= {
-data:string[]
-fetch:()=>string[]
+data:Tag[]
+fetch:()=>Tag[]
 create:(name:string)=>string
 save:()=>void
 }
@@ -11,10 +15,12 @@ const tagModel:TagModel= {
        return this.data;
     },
    create(name:string){
-      if(this.data.indexOf(name)>=0){
+      //this.data=[{id:1,name:1},{id:2,name:2}]
+       const names=this.data.map(item=>item.name)
+      if(names.indexOf(name)>=0){
           return'duplicated';
       }
-   this.data.push(name);
+   this.data.push({id:name,name:name});
    this.save();
    return 'success';
     },
