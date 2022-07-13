@@ -9,7 +9,7 @@
         </router-link>
         </div>
       <div class="createTag-wrapper">
-        <button class="createTag" @click="createTag">新增标签</button>
+        <Button class="createTag" @click="createTag">新增标签</Button>
       </div>
       </layout>
 </template>
@@ -51,13 +51,12 @@ export default class extends Vue{
       width: 16px;
       height: 16px;
       color:#666;
-      border: 1px solid red;
       margin-right: 16px;
 
     }
   }
 }
-.createTag{
+.createTag {
   background: #767676;
   color: white;
   border-radius: 4px;
