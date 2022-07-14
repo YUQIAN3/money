@@ -18,9 +18,4 @@ type RecordItem ={
     createdAt?: Date  // 类 / 构造函数
 }
 interface Window{
-tagList:Tag[];
-createTag:(name:string)=>void;
-findTag:(id:string)=>Tag|undefined;
-removeTag:(id:string)=>boolean
-updateTag:(id:string,name:string)=>'success'|'not found'|'duplicated'
 }
