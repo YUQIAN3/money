@@ -13,25 +13,17 @@
       </div>
       </layout>
 </template>
-
 <script lang="ts">
-
-import tagModel from '@/models/tagModel';
-import tagListModel from '@/models/tagModel';
 import Vue from 'vue';
 import Component from 'vue-class-component';
-tagModel.fetch();
 @Component
 export default class extends Vue{
-  tags=tagModel.data;
+
   createTag() {
     const name = window.prompt('请输入标签名：')
     if (name) {
-    const message=tagListModel.create(name)
+    window.createTag(name)
 
-        if (message === 'duplicated') {
-          window.alert('标签名重复')
-        }
       }
     }
 };
