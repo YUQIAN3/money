@@ -1,3 +1,4 @@
+import createId from '@/lib/createId';
 type Tag={
     id:string;
     name:string;
@@ -18,11 +19,12 @@ const tagModel:TagModel= {
     },
    create(name:string){
       //this.data=[{id:1,name:1},{id:2,name:2}]
+       const id = createId().toString()
        const names=this.data.map(item=>item.name)
       if(names.indexOf(name)>=0){
           return'duplicated';
       }
-   this.data.push({id:name,name:name});
+   this.data.push({id,name:name});
    this.save();
    return 'success';
     },
@@ -50,10 +52,7 @@ const tagModel:TagModel= {
              break;
          }
       }
-        console.log('index');
-        console.log(index);
       this.data.splice(index,1)
-        console.log(this.data);
       this.save()
       return true;
     },
