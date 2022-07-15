@@ -8,4 +8,5 @@ const store={
 //tag store
     ...tagStore
 }
+console.log(store);
 export default store;
