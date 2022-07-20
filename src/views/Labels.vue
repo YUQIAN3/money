@@ -16,17 +16,25 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import store from '@/store/index2';
-@Component
-export default class extends Vue{
-  tags = store.tagList
-  createTag() {
-    const name = window.prompt('请输入标签名：')
-    if (name) {
-      store.createTag(name)
-
-      }
+@Component({
+  computed: {
+    tags() {
+      return this.$store.state.tagList
     }
+  }
+})
+export default class extends Vue{
+ beforeCreate(){
+   this.$store.commit('fetchTas')
+   console.log('222');
+ }
+  createTag(){
+    const name=window.prompt('请输入标签名')
+    if(!name){
+      return window.alert('标签不能为空')}
+    this.$store.commit('createTag',name)
+
+  }
 };
 </script>
 
