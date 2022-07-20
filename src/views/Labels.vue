@@ -16,17 +16,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import Component from 'vue-class-component';
-@Component({
-  computed: {
-    tags() {
-      return this.$store.state.tagList
-    }
-  }
-})
+@Component
 export default class extends Vue{
+  get tags(){
+    return this.$store.state.tagList
+  }
  beforeCreate(){
-   this.$store.commit('fetchTas')
-   console.log('222');
+   this.$store.commit('fetchTags')
  }
   createTag(){
     const name=window.prompt('请输入标签名')

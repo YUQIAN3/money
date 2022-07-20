@@ -15,17 +15,14 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
-@Component({
-  computed:{
-    tagList(){
-       return this.$store.state.tagList;
-    }
-  }
-})
+@Component
 export default class Tags extends Vue{
+  get tagList(){
+    return this.$store.state.tagList;
+  }
   selectedTags:string[]=[];
   created(){
-    this.$store.commit('fetchTas')
+    this.$store.commit('fetchTags')
   }
   toggle(tag:string){
     const index=this.selectedTags.indexOf(tag);

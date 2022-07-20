@@ -15,11 +15,12 @@ import {Prop} from 'vue-property-decorator';
 @Component
 export default class Types extends Vue{
   @Prop()readonly value!:string
+
   selectType(type:string){//type 只能是+或-中的一个
      if(type!=='-'&& type!=='+'){
         throw new Error('type is unknown')
       }
-
+      this.$emit('update:value',type)
     }
 
 }
