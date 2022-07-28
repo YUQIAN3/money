@@ -6,8 +6,8 @@
         <Tabs :data-source=" recordTypeList"
               :value.sync=" record.type"/>
         <div class="notes">
-          <formItem field-name="标签名"
-                    placeholder="请输入标签名"
+          <formItem field-name="备注"
+                    placeholder="在这里输入备注"
                @update:value="onUpDateTagsNotes"/>
         </div>
         <Tags/>
@@ -50,8 +50,8 @@ create(){
   }
 }
 </script>
-<style lang="scss">
-.layout-content{
+<style scoped lang="scss">
+::v-deep .layout-content{
   display: flex;
   flex-direction: column-reverse;
 }
