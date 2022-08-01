@@ -87,7 +87,7 @@ type='-';
 <style scoped lang="scss">
 .noResult{
   padding: 16px;
-  align-content: center;
+ text-align: center;
 }
 ::v-deep .type-tabs-item{
   background: #c4c4c4;
