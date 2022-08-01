@@ -38,6 +38,9 @@ export default class Tags extends Vue{
     if(!name){
       return window.alert('标签不能为空')}
     this.$store.commit('createTag',name)
+    if(this.$store.state.createTagError){
+      window.alert(this.$store.state.createTagError.message)
+    }
 
   }
 }
