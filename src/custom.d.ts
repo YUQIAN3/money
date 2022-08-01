@@ -11,7 +11,7 @@ type TagModel= {
     save:()=>void
 }
 type RecordItem ={
-    tags:string[],
+    tags:Tag[],
     notes:string,
     type:string,
     amount:number,
@@ -19,6 +19,7 @@ type RecordItem ={
 }
 type RootState = {
     recordList: RecordItem[],
+    createRecordError:Error|null,
     tagList: Tag[],
     currentTag?: Tag
 }
