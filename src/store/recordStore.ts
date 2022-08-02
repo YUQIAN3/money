@@ -4,8 +4,6 @@ import clone from '@/lib/clone';
 const recordStore={
     recordList:[] as RecordItem[],
   fetchRecord(){
-      console.log('1111');
-      console.log(window.localStorage.getItem('recordList'));
       this.recordList = JSON.parse(window.localStorage.getItem('recordList') || '[]') as RecordItem[];
       return this.recordList;
   },
